@@ -1,5 +1,6 @@
 import axios from "axios";
-import { getRequestOptions } from "./utils";
+import { getRequestOptions } from "./utils.js";
+import { setLocalStorage } from "./localStorage.js";
 
 function login(username, password){
     const authString = "Basic " + btoa(username + ":" + password);
@@ -14,13 +15,18 @@ function login(username, password){
         },
       })
       .then((resp) => {
+        if(resp.token){
+          setLocalStorage("token", resp.data.token);
+          setLocalStorage("username", resp.data.username);
+          setLocalStorage("id", resp.data.id);
+
+          window.location.href = "/Home";
+        }
         if (resp.data.token) {
-          localStorage.setItem("token", resp.data.token);
-          localStorage.setItem("username", resp.data.username);
-          localStorage.setItem("id", resp.data.id);
-          
-          var id = resp.data.id;
-          var token = resp.data.token;
+
+          setLocalStorage("token", resp.data.token);
+          setLocalStorage("username", resp.data.username);
+          setLocalStorage("id", resp.data.id);
 
           window.location.href = "/Home";
 
