@@ -12,7 +12,7 @@ const getServicesUrl = `https://proyecto-informatico-backend.onrender.com/user/$
 
 const loginUrl = `https://proyecto-informatico-backend.onrender.com/user/login`
 
-export default { getBillsUrl, getClientsUrl, getProductsUrl, getServicesUrl, loginUrl };
+export default { getBillsUrl, getClientsUrl, getProductsUrl, getServicesUrl, loginUrl, url };
 
 // render api domain
 // https://proyecto-informatico-backend.onrender.com/
