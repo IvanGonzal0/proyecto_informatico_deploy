@@ -16,9 +16,9 @@ function login(username, password){
       })
       .then((resp) => {
         if(resp.token){
-          setLocalStorage("token", resp.data.token);
-          setLocalStorage("username", resp.data.username);
-          setLocalStorage("id", resp.data.id);
+          setLocalStorage("token", resp.token);
+          setLocalStorage("username", resp.username);
+          setLocalStorage("id", resp.id);
 
           window.location.href = "/Home";
         }
