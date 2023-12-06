@@ -1,7 +1,9 @@
 const getId = () => {
-    return JSON.parse(localStorage.getItem("id"));
-} 
-const getToken = localStorage.getItem("token");
+  return JSON.parse(localStorage.getItem("id"));
+};
+const getToken = () => {
+  return JSON.parse(localStorage.getItem("token"));
+};
 
 export const setLocalStorage = (key, data) => {
   localStorage.setItem(key, JSON.stringify(data));
