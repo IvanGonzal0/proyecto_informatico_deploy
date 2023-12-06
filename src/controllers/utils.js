@@ -1,15 +1,21 @@
-const id = localStorage.getItem("id");
+import {getId, getToken} from "./localStorage.js";
 
 function getRequestOptions() {
-  const id = localStorage.getItem("id");
-  const token = localStorage.getItem("token");
+  const id = () => {
+    return JSON.parse(localStorage.getItem('id'))
+  }
+  
+  const token = () => {
+    return JSON.parse(localStorage.getItem('token'))
+  }
+  
 
   const requestOptions = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImV4cCI6MTcwMDYwNDQ4N30.Fl6uC42M2walwUc6z73oyoniljrx9m9UOd1bqPI_V7U",
-      "user-id": "21",
+      "token": token(),
+      "user-id": id(),
     },
   };
   return requestOptions;
